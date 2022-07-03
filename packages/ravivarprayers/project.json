@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/ravivarprayers/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/ravivarprayers",
+        "index": "packages/ravivarprayers/src/index.html",
+        "baseHref": "/",
+        "main": "packages/ravivarprayers/src/main.tsx",
+        "polyfills": "packages/ravivarprayers/src/polyfills.ts",
+        "tsConfig": "packages/ravivarprayers/tsconfig.app.json",
+        "assets": [
+          "packages/ravivarprayers/src/favicon.ico",
+          "packages/ravivarprayers/src/assets"
+        ],
+        "styles": ["packages/ravivarprayers/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/ravivarprayers/src/environments/environment.ts",
+              "with": "packages/ravivarprayers/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ravivarprayers:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ravivarprayers:build:development"
+        },
+        "production": {
+          "buildTarget": "ravivarprayers:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/ravivarprayers/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/ravivarprayers"],
+      "options": {
+        "jestConfig": "packages/ravivarprayers/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
