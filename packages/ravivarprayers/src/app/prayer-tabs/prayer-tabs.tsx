@@ -1,3 +1,4 @@
+import styles from './prayer-tabs.module.css';
 import * as React from 'react';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -6,6 +7,11 @@ import Box from '@material-ui/core/Box';
 import NakodaBhairavChalisa from '../nakoda-bhairav-chalisa/nakoda-bhairav-chalisa';
 import AdityaHridayamStrotam from '../aditya-hridayam-strotam/aditya-hridayam-strotam';
 
+/* eslint-disable-next-line */
+export interface PrayerTabsProps {}
+
+/* eslint-disable-next-line */
+export interface TabsProps {}
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -39,7 +45,7 @@ function a11yProps(index: number) {
   };
 }
 
-export default function BasicTabs() {
+export function PrayerTabs(props: PrayerTabsProps) {
   const [value, setValue] = React.useState(0);
 
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -48,16 +54,7 @@ export default function BasicTabs() {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        width: '100%',
-        justifyContent: 'space-around',
-        alignContent: 'center',
-        marginTop: 25,
-      }}
-    >
+    <div className={styles['tabs']}>
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs
@@ -79,3 +76,5 @@ export default function BasicTabs() {
     </div>
   );
 }
+
+export default PrayerTabs;
