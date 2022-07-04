@@ -1,3 +1,4 @@
+import Images from '../images/images';
 import styles from './nakoda-bhairav-chalisa.module.css';
 
 /* eslint-disable-next-line */
@@ -6,15 +7,18 @@ export interface NakodaBhairavChalisaProps {}
 export function NakodaBhairavChalisa(props: NakodaBhairavChalisaProps) {
   return (
     <div className={styles['container']}>
-      <p>
-        <div className={styles['header']}>Nakoda Bhairav Chalisa</div>
-      </p>
+      <Images
+        src="../../assets/nakodabhairav.jpeg"
+        title="Nakoda Bhairav"
+        rowHeight={450}
+      ></Images>
+
+      <div className={styles['header']}>Nakoda Bhairav Chalisa</div>
 
       <div className={styles['body']}>
         <div> ॥ दोहा ॥ </div>
-        <div>
-          पाश्वर्नाथ भगवान की, मूरत चित बसाए ॥ भैरव चालीसा लखू, गाता मन हरसाए ॥{' '}
-        </div>
+        <div>पाश्वर्नाथ भगवान की, मूरत चित बसाए ॥ </div>
+        <div>भैरव चालीसा लखू, गाता मन हरसाए ॥ </div>
         <br />
         <div>।। चौपाई ।। </div>
         <div>नाकोडा भैरव सुखकारी, गुण गाये ये दुनिया सारी ॥ </div>
